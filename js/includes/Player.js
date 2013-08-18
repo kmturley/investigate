@@ -20,9 +20,9 @@ define('Player', ['Class'], function (Class) {
             }
         },
         init: function (id, options) {
-            var me = this;
             this.el = document.getElementById(id);
-            //this.defaults.videoId = options.videoId;
+            this.options = options || {};
+            this.options.id = id;
             this._script();
         },
         _script: function () {
@@ -41,17 +41,27 @@ define('Player', ['Class'], function (Class) {
                 me._change(e);
             };
             window.onYouTubeIframeAPIReady = function () {
-                me.player = new YT.Player('player', me.defaults);
+                me.player = new YT.Player(me.el, me.defaults);
             };
         },
         _ready: function (e) {
-            console.log('ready', e);
+            this.el = document.getElementById(this.options.id);
+            //console.log('ready', e);
         },
         _change: function (e) {
-            console.log('change', e);
-            if (e.data === YT.PlayerState.PLAYING) {
-                console.log('playing');
-            }
+            //console.log('change', e);
+            //if (e.data === YT.PlayerState.PLAYING) {
+                //console.log('playing');
+            //}
+        },
+        load: function (item) {
+            this.player.cueVideoById(item.url);
+        },
+        hide: function () {
+            this.el.style.display = 'none';
+        },
+        show: function () {
+            this.el.style.display = 'block';
         }
     });
 });

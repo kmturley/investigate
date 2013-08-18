@@ -1,0 +1,12 @@
+/*
+    Picture
+    css styles specific to this module only
+*/
+
+.picture {
+
+}
+
+.picture .item {
+    max-width: 100%;
+}

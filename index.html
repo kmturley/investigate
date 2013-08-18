@@ -1,41 +1,45 @@
 <!doctype html>
 <html lang="en" class="h1of1">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="initial-scale=1,minimum-scale=1,maximum-scale=1" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <title>Investigate</title>
-        <link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" />
-        <link href="css/base/reset.css" rel="stylesheet" />
-        <link href="css/base/layout.css" rel="stylesheet" />
-        <link href="css/base/themes.css" rel="stylesheet" />
-        <script src="js/base/almond.js"></script>
-    </head>
-    <body class="default flow-xs h1of1">
-    
-        <div class="row fullscreen h2of3">
-            <div class="col w2of3 h1of1">
-                <div id="player">Video</div>
-            </div>
-            <div class="col w1of3">
-                <p>Map</p>
-            </div>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1,minimum-scale=1,maximum-scale=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>Investigate</title>
+    <link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" />
+    <link href="css/base/reset.css" rel="stylesheet" />
+    <link href="css/base/layout.css" rel="stylesheet" />
+    <link href="css/base/themes.css" rel="stylesheet" />
+    <link href="css/views/picture.css" rel="stylesheet" />
+    <link href="css/views/timeline.css" rel="stylesheet" />
+    <script src="js/base/almond.js"></script>
+</head>
+<body class="default flow-xs h1of1">
+    <div class="row fullscreen h2of3">
+        <div class="col w2of3 h1of1">
+            <div id="player" class="player h1of1">Video</div>
+            <div id="picture" class="picture h1of1">Picture</div>
         </div>
-        
-        <div class="row fullscreen h1of3">
-            <div class="col w1of1">
-                <p>Timeline</p>
-            </div>
+        <div class="col w1of3 h1of1">
+            <div id="map" class="map h1of1">Map</div>
         </div>
-        
-        <script src="js/includes/Class.js"></script>
-		<script src="js/includes/Player.js"></script>
-        <script src="js/includes/Map.js"></script>
-		<script>
-			require(['Player', 'Map'], function(Player, Map) {
-				var player = new Player(),
-                    map = new Map();
-			});
-		</script>
-    </body>
+    </div>
+    <div class="row fullscreen h1of3">
+        <div class="col w1of1 h1of1">
+            <div id="timeline" class="timeline h1of1">Timeline</div>
+        </div>
+    </div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9p-WEghqAAJUFFsoY2il6QRckvVKGdmM&amp;sensor=false"></script>
+    <script src="js/includes/Class.js"></script>
+    <script src="js/includes/Events.js"></script>
+    <script src="js/includes/Picture.js"></script>
+    <script src="js/includes/Player.js"></script>
+    <script src="js/includes/Map.js"></script>
+    <script src="js/includes/Timeline.js"></script>
+    <script src="js/views/Main.js"></script>
+    <script>
+        require(['Main'], function (Main) {
+            var main = new Main();
+        });
+    </script>
+</body>
 </html>
