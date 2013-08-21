@@ -4,11 +4,23 @@
 */
 
 .timeline {
-    background-color: #000;
+
+}
+
+.timeline .time {
+    width: 100px;
+    display: inline-block;
+    padding: 5px 5px 5px 5px;
+    border-left: 1px solid #999;
+}
+
+.timeline .slot {
+    width: 110px;
+    float: left;
+    border-left: 1px solid #999;
 }
 
 .timeline .item {
     display: block;
-    padding: 5px 0;
-    background-color: #999;
+    padding: 5px 5px 5px 5px;
 }

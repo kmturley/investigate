@@ -4,9 +4,8 @@
 */
 
 .picture {
-
-}
-
-.picture .item {
-    max-width: 100%;
+    text-align: center;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
 }

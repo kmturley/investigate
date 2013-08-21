@@ -31,11 +31,6 @@
     overflow: hidden;
 }
 
-.default .col img {
-    display: block;
-    padding: 0 0 0.2em 0;
-}
-
 .text {
     text-align: justify;
     -webkit-hyphens: auto;
@@ -66,12 +61,24 @@
     color: #ffffff;
 }
 
+.dark a.c1:hover {
+    color: #cccccc;
+}
+
 .dark .c2 {
     color: #bbbbbb;
 }
 
 .dark a.c2:hover {
     color: #ffffff;
+}
+
+.dark .c3 {
+    color: #2989D8;
+}
+
+.dark a.c3:hover {
+    color: #71A8D6;
 }
 
 .dark.bg1,
@@ -88,7 +95,12 @@
 
 .dark.bg2,
 .dark .bg2 {
-    background-color: #111111;
+    background-color: #000;
+}
+
+.dark.bg3,
+.dark .bg3 {
+    background-color: #111;
 }
 
 /*

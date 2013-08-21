@@ -23,17 +23,24 @@ define('Main', ['Events', 'Player', 'Map', 'Timeline', 'Picture'], function (Eve
  
             this.timeline.addEvent('load', function (e) {
                 me.map.load(e.data);
-                me._click(e.data[0]);
+                me._item(e.data[0]);
             });
             
             this.timeline.load();
         },
         _change: function (url) {
             var value = url.split('/'),
-                index = Number(value[value.length - 2]);
-            this._click(this.timeline.get(index));
+                subvalue = value[value.length - 2];
+            if (value[value.length - 3] === 'time') {
+                this._time(this.timeline.getTime(subvalue));
+            } else {
+                this._item(this.timeline.getItem(Number(subvalue)));
+            }
         },
-        _click: function (item) {
+        _time: function (items) {
+            this.map.load(items);
+        },
+        _item: function (item) {
             this.map.select(item.index);
             if (item.type === 'video') {
                 this.picture.hide();

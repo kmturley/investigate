@@ -16,7 +16,7 @@ define('Picture', ['Class'], function (Class) {
             this.options = options;
         },
         load: function (item) {
-            this.el.innerHTML = '<img src="' + item.url + '" alt="' + item.name + '" class="item" />';
+            this.el.style.backgroundImage = 'url("' + item.url + '")';
         },
         hide: function () {
             this.el.style.display = 'none';

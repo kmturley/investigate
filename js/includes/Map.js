@@ -44,7 +44,8 @@ define('Map', ['Class'], function (Class) {
                 };
             this.markers = [];
             this.map = new google.maps.Map(this.el, mapOptions);
-            
+            this.bounds = new google.maps.LatLngBounds();
+
             for (i = 0; i < items.length; i += 1) {
                 this.markers.push(new google.maps.Marker({
                     position: new google.maps.LatLng(items[i].long, items[i].lat),
@@ -52,11 +53,14 @@ define('Map', ['Class'], function (Class) {
                     title: items[i].name,
                     id: i
                 }));
+                this.bounds.extend(this.markers[i].position);
                 
                 google.maps.event.addListener(this.markers[i], 'click', function () {
                     window.location.href = '#/' + this.id + '/';
                 });
             }
+            
+            this.map.fitBounds(this.bounds);
         },
         select: function (num) {
             var i = 0,

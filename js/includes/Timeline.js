@@ -11,8 +11,7 @@ define('Timeline', ['Events', 'Loader'], function (Events, Loader) {
     
     return Events.extend({
         defaults: {
-            scale: 100,
-            url: 'js/items.json'
+            url: 'js/boston.json'
         },
         init: function (id, options) {
             var me = this;
@@ -20,29 +19,48 @@ define('Timeline', ['Events', 'Loader'], function (Events, Loader) {
             this.options = options;
             this.loader = new Loader();
         },
-        get: function (num) {
-            return this.items[num];
+        getTime: function (string) {
+            return this.times[string] ? this.times[string] : this.items;
+        },
+        getItem: function (num) {
+            return this.items[num] ? this.items[num] : this.items;
         },
         load: function () {
             var me = this;
-            this.loader.load(this.defaults.url, function(string) {
-                me._complete(JSON.parse(string));
+            this.loader.load(this.defaults.url, function (string) {
+                me._times(JSON.parse(string));
             });
         },
-        _complete: function(items) {
+        _times: function (items) {
             var i = 0,
-                left = 0,
-                width = 0,
-                html = '';
+                item = '',
+                html = '<a href="#/time/all/" class="time c3 bg1">View All</a>',
+                itemhtml = '<div class="slot"><a class="item c1 bg3"></a></div>',
+                date = new Date(),
+                times = {};
             
             for (i = 0; i < items.length; i += 1) {
                 items[i].index = i;
-                left = items[i].start * this.defaults.scale;
-                width = (items[i].end - items[i].start) * this.defaults.scale;
-                html += '<a href="#/' + i + '/" class="item" style="margin-left:' + left + 'px; width:' + width + 'px;">' + items[i].name + '</a>';
+                if (!times[items[i].start]) {
+                    times[items[i].start] = [];
+                }
+                times[items[i].start].push(items[i]);
             }
+            
+            for (item in times) {
+                if (times.hasOwnProperty(item)) {
+                    date = new Date(item);
+                    html += '<a href="#/time/' + item + '/" class="time c3 bg1">' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '</a>';
+                    itemhtml += '<div class="slot">';
+                    for (i = 0; i < times[item].length; i += 1) {
+                        itemhtml += '<a href="#/item/' + times[item][i].index + '/" class="item c1 bg3">' + times[item][i].name + '</a>';
+                    }
+                    itemhtml += '</div>';
+                }
+            }
+            this.times = times;
             this.items = items;
-            this.el.innerHTML = html;
+            this.el.innerHTML = '<div class="times">' + html + '</div><div class="items">' + itemhtml + '</div>';
             this.dispatchEvent('load', items);
         }
     });
