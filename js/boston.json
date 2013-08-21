@@ -3,72 +3,72 @@
         "name": "BBC",
         "type": "image",
         "start": "2013-04-15T02:49:43-04:00",
-        "long": -71.078269,
-        "lat": 42.349745,
+        "lat": -71.078269,
+        "long": 42.349745,
         "url": "http://news.bbcimg.co.uk/media/images/67023000/jpg/_67023063_67023062.jpg"
     },
     {
         "name": "themastercopy",
         "type": "image",
         "start": "2013-04-15T02:49:55-04:00",
-        "long": -71.078216,
-        "lat": 42.349862,
+        "lat": -71.078216,
+        "long": 42.349862,
         "url": "http://themastercopy.files.wordpress.com/2013/04/7d073bb6-e919-49f6-b013-c0e96fc91ab6_marathonblast_g_mega.jpg"
     },
     {
         "name": "Dan Lampariello",
         "type": "image",
         "start": "2013-04-15T02:49:58-04:00",
-        "long": -71.081531,
-        "lat": 42.348892,
+        "lat": -71.081531,
+        "long": 42.348892,
         "url": "http://i.telegraph.co.uk/multimedia/archive/02537/Boston-explosion-m_2537196k.jpg"
     },
     {
         "name": "Aaron Tang",
         "type": "image",
         "start": "2013-04-15T02:50:15-04:00",
-        "long": -71.079876,
-        "lat": 42.349614,
+        "lat": -71.079876,
+        "long": 42.349614,
         "url": "http://farm9.staticflickr.com/8527/8653921886_e6aca43ba8_b.jpg"
     },
     {
         "name": "Aaron Tang",
         "type": "image",
         "start": "2013-04-15T02:50:17-04:00",
-        "long": -71.079876,
-        "lat": 42.349614,
+        "lat": -71.079876,
+        "long": 42.349614,
         "url": "http://farm9.staticflickr.com/8104/8653924130_6a6d75000b_b.jpg"
     },
     {
         "name": "Aaron Tang",
         "type": "image",
         "start": "2013-04-15T02:50:21-04:00",
-        "long": -71.079876,
-        "lat": 42.349614,
+        "lat": -71.079876,
+        "long": 42.349614,
         "url": "http://farm9.staticflickr.com/8246/8652825435_7e73802a1e_b.jpg"
     },
     {
         "name": "Aaron Tang",
         "type": "image",
         "start": "2013-04-15T02:50:28-04:00",
-        "long": -71.079876,
-        "lat": 42.349614,
+        "lat": -71.079876,
+        "long": 42.349614,
         "url": "http://farm9.staticflickr.com/8256/8652831303_8d797705a8_b.jpg"
     },
     {
         "name": "Aaron Tang",
         "type": "image",
         "start": "2013-04-15T02:50:30-04:00",
-        "long": -71.079876,
-        "lat": 42.349614,
+        "lat": -71.079876,
+        "long": 42.349614,
         "url": "http://farm9.staticflickr.com/8400/8652833509_5eaf11f322_b.jpg"
     },
     {
         "name": "Aaron Tang",
         "type": "image",
         "start": "2013-04-15T02:50:55-04:00",
-        "long": -71.079876,
-        "lat": 42.349614,
+        "lat": -71.079876,
+        "long": 42.349614,
         "url": "http://farm9.staticflickr.com/8243/8652829335_9a6d17d019_b.jpg"
     }
 ]
