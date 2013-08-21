@@ -31,13 +31,9 @@ define('Main', ['Events', 'Player', 'Map', 'Timeline', 'Picture'], function (Eve
         _change: function (url) {
             var value = url.split('/'),
                 index = Number(value[value.length - 2]);
-            
-            console.log('change', index);
-            
             this._click(this.timeline.get(index));
         },
         _click: function (item) {
-            console.log(item);
             this.map.select(item.index);
             if (item.type === 'video') {
                 this.picture.hide();

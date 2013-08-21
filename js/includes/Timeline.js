@@ -6,44 +6,31 @@
 /*global define, window, document, YT*/
 /*jslint nomen:true*/
 
-define('Timeline', ['Events'], function (Events) {
+define('Timeline', ['Events', 'Loader'], function (Events, Loader) {
     'use strict';
     
     return Events.extend({
         defaults: {
             scale: 100,
-            items: [
-                {
-                    "name": "Image 1",
-                    "type": "image",
-                    "start": 0,
-                    "end": 1,
-                    "long": -33.890542,
-                    "lat": 151.274856,
-                    "url": "img/alley.jpg"
-                },
-                {
-                    "name": "Video 1",
-                    "type": "video",
-                    "start": 5,
-                    "end": 6,
-                    "long": -33.890743,
-                    "lat": 151.275353,
-                    "url": "M7lc1UVf-VE"
-                }
-            ]
+            url: 'js/items.json'
         },
         init: function (id, options) {
             var me = this;
             this.el = document.getElementById(id);
             this.options = options;
+            this.loader = new Loader();
         },
         get: function (num) {
-            return this.defaults.items[num];
+            return this.items[num];
         },
         load: function () {
-            var items = this.defaults.items,
-                i = 0,
+            var me = this;
+            this.loader.load(this.defaults.url, function(string) {
+                me._complete(JSON.parse(string));
+            });
+        },
+        _complete: function(items) {
+            var i = 0,
                 left = 0,
                 width = 0,
                 html = '';
@@ -54,8 +41,9 @@ define('Timeline', ['Events'], function (Events) {
                 width = (items[i].end - items[i].start) * this.defaults.scale;
                 html += '<a href="#/' + i + '/" class="item" style="margin-left:' + left + 'px; width:' + width + 'px;">' + items[i].name + '</a>';
             }
+            this.items = items;
             this.el.innerHTML = html;
-            this.dispatchEvent('load', this.defaults.items);
+            this.dispatchEvent('load', items);
         }
     });
 });
