@@ -12,10 +12,19 @@ define('Main', ['Events', 'Player', 'Map', 'Timeline', 'Picture'], function (Eve
     return Events.extend({
         init: function (id, options) {
             var me = this;
+            
+            this.text = document.getElementById('text');
+            this.form = document.getElementById('form');
+            
             this.timeline = new Timeline('timeline');
             this.picture = new Picture('picture');
             this.player = new Player('player');
             this.map = new Map('map');
+            
+            this.on(this.form, 'submit', function (e) {
+                e.preventDefault();
+                me.timeline.load(me.text.value);
+            });
             
             this.on(window, 'hashchange', function (e) {
                 me._change(e.newURL);
@@ -25,8 +34,6 @@ define('Main', ['Events', 'Player', 'Map', 'Timeline', 'Picture'], function (Eve
                 me.map.load(e.data);
                 me._item(e.data[0]);
             });
-            
-            this.timeline.load();
         },
         _change: function (url) {
             var value = url.split('/'),

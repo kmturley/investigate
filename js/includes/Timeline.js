@@ -10,9 +10,7 @@ define('Timeline', ['Events', 'Loader'], function (Events, Loader) {
     'use strict';
     
     return Events.extend({
-        defaults: {
-            url: 'js/boston.json'
-        },
+        defaults: {},
         init: function (id, options) {
             var me = this;
             this.el = document.getElementById(id);
@@ -20,14 +18,14 @@ define('Timeline', ['Events', 'Loader'], function (Events, Loader) {
             this.loader = new Loader();
         },
         getTime: function (string) {
-            return this.times[string] ? this.times[string] : this.items;
+            return this.times[string] || this.items;
         },
         getItem: function (num) {
-            return this.items[num] ? this.items[num] : this.items;
+            return this.items[num] || this.items;
         },
-        load: function () {
+        load: function (url) {
             var me = this;
-            this.loader.load(this.defaults.url, function (string) {
+            this.loader.load(url, function (string) {
                 me._times(JSON.parse(string));
             });
         },
