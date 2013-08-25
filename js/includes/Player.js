@@ -13,7 +13,7 @@ define('Player', ['Class'], function (Class) {
         defaults: {
             height: '100%',
             width: '100%',
-            videoId: 'M7lc1UVf-VE',
+            videoId: '',
             events: {
                 'onReady': function () {},
                 'onStateChange': function () {}

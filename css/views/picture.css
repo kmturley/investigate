@@ -8,4 +8,16 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
+    overflow: scroll;
+}
+
+.picture img {
+    display: none;
+}
+
+.picture.zoom img {
+    display: block;
+    width: 300%;
+    max-width: none;
+    max-height: none;
 }

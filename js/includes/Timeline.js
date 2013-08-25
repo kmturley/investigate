@@ -35,6 +35,9 @@ define('Timeline', ['Events', 'Loader'], function (Events, Loader) {
                 html = '<a href="#/time/all/" class="time c3 bg1">View All</a>',
                 itemhtml = '<div class="slot"><a class="item c1 bg3"></a></div>',
                 date = new Date(),
+                h = 0,
+                m = 0,
+                s = 0,
                 times = {};
             
             for (i = 0; i < items.length; i += 1) {
@@ -48,7 +51,15 @@ define('Timeline', ['Events', 'Loader'], function (Events, Loader) {
             for (item in times) {
                 if (times.hasOwnProperty(item)) {
                     date = new Date(item);
-                    html += '<a href="#/time/' + item + '/" class="time c3 bg1">' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '</a>';
+                    h = date.getHours();
+                    m = date.getMinutes();
+                    s = date.getSeconds();
+                    
+                    h = h < 10 ? '0' + h : h;
+                    m = m < 10 ? '0' + m : m;
+                    s = s < 10 ? '0' + s : s;
+                    
+                    html += '<a href="#/time/' + item + '/" class="time c3 bg1">' + h + ':' + m + ':' + s + '</a>';
                     itemhtml += '<div class="slot">';
                     for (i = 0; i < times[item].length; i += 1) {
                         itemhtml += '<a href="#/item/' + times[item][i].index + '/" class="item c1 bg3">' + times[item][i].name + '</a>';
